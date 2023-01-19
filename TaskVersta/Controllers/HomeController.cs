@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using TaskVersta.Models;
+using TaskVersta.Models.ViewModels;
 
 namespace TaskVersta.Controllers
 {
@@ -13,15 +13,26 @@ namespace TaskVersta.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult Warning()
+        {
+            var statusCode = Response.StatusCode;
+
+            switch (statusCode)
+            {
+                case 403:
+                    return View(new WarningViewModel { WarningText = "Вам запрещен доступ к данному ресурсу" });
+                case 404:
+                    return View(new WarningViewModel { WarningText = "Запрошенный ресурс не может быть найден" });
+                default:
+                    return View(new WarningViewModel { WarningText = $"Статусный код: {statusCode}" });
+            }
+
         }
     }
 }

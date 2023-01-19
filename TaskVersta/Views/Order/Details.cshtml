@@ -1,0 +1,79 @@
+﻿@model TaskVersta.Models.Order
+
+<form method="post">
+    <div class="border p-3">
+        <div class="form-group row">
+            <h2 class="text-info pl-3">
+                Детали заказа
+            </h2>
+        </div>
+        <div class="row">
+            <div class="col-8">
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="SenderCity"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="SenderCity" readonly class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="SenderAddress"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="SenderAddress" readonly class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="RecipientCity"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="RecipientCity" readonly class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="RecipientAddress"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="RecipientAddress" readonly class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="CargoWeight"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="CargoWeight" readonly class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="DateCargoPickup"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="DateCargoPickup" readonly class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-8 offset-4 row">
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-success w-100">
+                                <i class="fa-solid fa-right-from-bracket"></i> Назад
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

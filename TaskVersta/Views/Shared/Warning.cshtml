@@ -1,0 +1,14 @@
+﻿@model TaskVersta.Models.ViewModels.WarningViewModel
+@{
+    ViewData["Title"] = "Ошибка";
+}
+
+<h1 class="text-warning">Ошибка</h1>
+@if (Model.ShowWarningText)
+{
+    <h2 class="text-warning">@Model.WarningText</h2>
+}
+else
+{
+    <h2 class="text-warning">Вы получили ответ со статусным кодом в диапазоне 400-499</h2>
+}

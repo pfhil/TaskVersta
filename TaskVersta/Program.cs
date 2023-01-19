@@ -3,12 +3,16 @@ using TaskVersta.Data;
 using TaskVersta.Repositories;
 using TaskVersta.Repositories.Implementation;
 using TaskVersta.Repositories.Interfaces;
+using TaskVersta.Utility.FloatingPointModelBinding;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 #region ConfigureServices
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(options =>
+{
+    options.ModelBinderProviders.Insert(0, new CustomFloatingPointModelBinderProvider());
+});
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnetion"))
 );

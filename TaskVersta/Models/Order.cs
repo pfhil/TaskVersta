@@ -26,6 +26,7 @@ namespace TaskVersta.Models
 
         [Display(Name = "Вес груза")]
         [Required(ErrorMessage = "Поле обязательно для заполнения")]
+        [Range(0, int.MaxValue, ErrorMessage = "{0} должен быть не меньше {1} и не больше {2}")]
         public double CargoWeight { get; set; }
 
         [Display(Name = "Дата забора груза")]
